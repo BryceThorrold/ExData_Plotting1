@@ -35,16 +35,9 @@ smallertable <- subset(powerdata,as.Date(powerdata$Date,"%d/%m/%Y")=="2007-02-01
                          as.Date(powerdata$Date,"%d/%m/%Y")=="2007-02-02")
 
 
-##plot(smallertable$Global_active_power, smallertable$Time, main = "Global Active Power", ylab = "Global Active Power (kilowatts)")
-
-
-
-##dev.print(png, file = "./plot2.png", width = 480, height = 480)
-##png(file = "./plot2.png", bg = "transparent")
-##hist(smallertable$Global_active_power, main = "Global Active Power", col = "red", xlab = "Global Active Power (kilowatts)", ylab = "Frequency")
-##dev.off()
-
-
+dev.print(png, file = "./plot2.png", width = 480, height = 480)
+png(file = "./plot2.png", bg = "transparent")
 smallertable$fulldate <- strptime(paste(smallertable$Date,smallertable$Time),"%d/%m/%Y %H:%M:%S", "")
-plot(smallertable$fulldate,smallertable$Global_active_power,  main = "Global Active Power", ylab = "Global Active Power (kilowatts)", xlab = "")
-
+plot(smallertable$fulldate,smallertable$Global_active_power,  type="n", main = "Global Active Power", ylab = "Global Active Power (kilowatts)", xlab = "")
+lines(smallertable$fulldate,smallertable$Global_active_power)
+dev.off()
