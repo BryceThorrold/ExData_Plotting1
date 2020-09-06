@@ -36,6 +36,14 @@ hist(smallertable$Global_active_power, main = "Global Active Power", col = "red"
 
 
 
+dev.print(png, file = "./plot1.png", width = 480, height = 480)
+
+png(file = "myplot.png", bg = "transparent")
+plot(1:10)
+rect(1, 5, 3, 7, col = "white")
+dev.off()
+
+
 
 
 
