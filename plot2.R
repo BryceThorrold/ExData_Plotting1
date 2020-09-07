@@ -1,20 +1,4 @@
 
-
-### x <- "10-02-2020 05:05:06 AM"
-
-###  02:24:00
-
-## Calling strptime() function  
-## over specified date and time, template 
-## and time zone 
-## y <- strptime(x, "% d-% m-% Y % I:% M:% S", "GMT") 
-
-
-
-
-
-
-
 setwd("~/R/Projects/Data_Plotting1")
 
 if (!file.exists("./powerdata.zip")){
