@@ -20,16 +20,16 @@ smallertable <- subset(powerdata,as.Date(powerdata$Date,"%d/%m/%Y")=="2007-02-01
 
 smallertable$fulldate <- strptime(paste(smallertable$Date,smallertable$Time),"%d/%m/%Y %H:%M:%S", "")
 
-plot(smallertable$fulldate,smallertable$Sub_metering_1, type = "n", ylab = "Energy sub metering")
+
+dev.print(png, file = "./plot3.png", width = 480, height = 480)
+png(file = "./plot3.png", bg = "transparent")
+
+plot(smallertable$fulldate,smallertable$Sub_metering_1, type = "n", ylab = "Energy sub metering", xlab = "")
 lines(smallertable$fulldate,smallertable$Sub_metering_1, col = "grey")
 lines(smallertable$fulldate,smallertable$Sub_metering_2, col = "red")
 lines(smallertable$fulldate,smallertable$Sub_metering_3, col = "blue")
-##plot(smallertable$fulldate,smallertable$Global_active_power,  type="n", main = "Global Active Power", ylab = "Global Active Power (kilowatts)", xlab = "")
-##lines(smallertable$fulldate,smallertable$Global_active_power)
+legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       col=c("grey", "red", "blue"), lty=1, cex=0.8)
 
 
-##dev.print(png, file = "./plot3.png", width = 480, height = 480)
-##png(file = "./plot3.png", bg = "transparent")
-##plot(smallertable$fulldate,smallertable$Global_active_power,  type="n", main = "Global Active Power", ylab = "Global Active Power (kilowatts)", xlab = "")
-##lines(smallertable$fulldate,smallertable$Global_active_power)
-##dev.off()
+dev.off()
